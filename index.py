@@ -44,6 +44,14 @@ def generarImagenOjoRecortada(image, lineas_ojo, detection_result):
     # Recortar la región recortada utilizando los límites encontrados
     region_recortada = region_recortada[y:y+h, x:x+w]
 
+    # Pintar el pixel del centro del rectángulo en rojo
+    forma = region_recortada.shape
+    y_centro = int(forma[0]/2)
+    x_centro = int(forma[1]/2)
+
+    
+    region_recortada[y_centro, x_centro] = (0, 0, 255)
+
     return region_recortada
 
 # ---------------------------------------------------------------------------------------------------
